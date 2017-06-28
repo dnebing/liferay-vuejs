@@ -14,6 +14,11 @@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
 <%@ page import="com.liferay.portal.kernel.settings.PortletInstanceSettingsLocator" %>
 <%@ page import="com.liferay.portal.kernel.util.Constants" %>
 <%@ page import="com.liferay.portal.kernel.settings.ParameterMapSettingsLocator" %>
+<%@ page import="com.liferay.portal.kernel.util.Validator" %>
+<%@ page
+        import="com.liferay.portal.kernel.security.permission.PermissionChecker" %>
+<%@ page import="com.liferay.portal.kernel.model.Organization" %>
+<%@ page import="com.liferay.portal.kernel.security.permission.ActionKeys" %>
 
 <liferay-frontend:defineObjects />
 
@@ -25,5 +30,9 @@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
     VuePortlet1PortletInstanceConfiguration portletInstanceConfig =
             ConfigurationProviderUtil.getConfiguration(VuePortlet1PortletInstanceConfiguration.class,
                     new PortletInstanceSettingsLocator(themeDisplay.getLayout(), portletDisplay.getId()));
+
+    PermissionChecker pc;
+
+    pc.hasPermission(null, Organization.class.getName(), Organization.class.getName(), ActionKeys.VIEW);
 %>
 
