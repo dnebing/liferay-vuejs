@@ -4,7 +4,8 @@
 	portletInstanceConfig = ConfigurationProviderUtil.getConfiguration(
 			VuePortlet1PortletInstanceConfiguration.class,
 			new ParameterMapSettingsLocator(request.getParameterMap(),
-					new PortletInstanceSettingsLocator(themeDisplay.getLayout(), portletDisplay.getPortletResource())));
+					new PortletInstanceSettingsLocator(themeDisplay.getLayout(),
+							portletDisplay.getPortletResource())));
 %>
 <liferay-portlet:actionURL portletConfiguration="<%= true %>" var="configurationActionURL" />
 
@@ -18,8 +19,10 @@
 		<div class="container-fluid-1280">
 			<aui:fieldset-group markupView="lexicon">
 				<aui:fieldset>
-					<aui:input label="config.flag.one" name="preferences--flagOne--" type="toggle-switch" value="<%= portletInstanceConfig.flagOne() %>" />
-					<aui:input label="config.flag.two" name="preferences--flagTwo--" type="toggle-switch" value="<%= portletInstanceConfig.flagTwo() %>" />
+					<aui:input label="config.flag.one" name="preferences--flagOne--"
+							   type="toggle-switch" value="<%= portletInstanceConfig.flagOne() %>" />
+					<aui:input label="config.flag.two" name="preferences--flagTwo--"
+							   type="toggle-switch" value="<%= portletInstanceConfig.flagTwo() %>" />
 				</aui:fieldset>
 			</aui:fieldset-group>
 		</div>
